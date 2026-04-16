@@ -1,0 +1,65 @@
+{
+  "hero": {
+    "badge": "100% NATURAL • ORGANIC • PREMIUM",
+    "headline": ["Pure Spices,", "Authentic Taste."],
+    "subheadline": "Elevate your cooking with our premium selection of handpicked, organic spices. Free from preservatives and packed with nature's purest essence.",
+    "ctaPrimary": "Explore Products",
+    "ctaSecondary": "Our Story"
+  },
+  "features": [
+    {
+      "icon": "sparkles",
+      "title": "100% Natural",
+      "description": "Sourced directly from farms across Kerala and beyond. Completely organic, sun-dried, and handpicked for quality."
+    },
+    {
+      "icon": "shield",
+      "title": "No Preservatives",
+      "description": "Zero chemicals, zero artificial colors, zero additives. Just pure nature in a jar — exactly as it should be."
+    },
+    {
+      "icon": "award",
+      "title": "Premium Quality",
+      "description": "Export-grade spices that bring rich aroma and authentic taste. Lab-tested and quality certified for your kitchen."
+    },
+    {
+      "icon": "leaf",
+      "title": "Sustainable Sourcing",
+      "description": "We work directly with farmers, ensuring fair trade practices and sustainable farming methods for a better tomorrow."
+    },
+    {
+      "icon": "truck",
+      "title": "Fast Delivery",
+      "description": "From our facility to your doorstep in record time. Freshly packed and sealed to preserve the natural essence."
+    },
+    {
+      "icon": "heart",
+      "title": "Made with Love",
+      "description": "Every spice is a labor of love. Generations of expertise combined with modern quality standards for perfection."
+    }
+  ],
+  "about": {
+    "badge": "Our Story",
+    "title": "A Legacy of Pure Spices",
+    "description": "For generations, Aqdas Spices has been dedicated to bringing the finest, most authentic spices from the heartlands of India to kitchens around the world. Our journey began in the spice gardens of Kerala, where tradition meets quality.",
+    "highlights": [
+      "Hand-selected from premium farms",
+      "Traditional stone-grinding methods",
+      "Lab-tested for purity & quality",
+      "Eco-friendly packaging"
+    ],
+    "image": "/assets/products/turmeric.jpg"
+  },
+  "stats": [
+    { "value": 50, "suffix": "+", "label": "Spice Varieties" },
+    { "value": 10, "suffix": "K+", "label": "Happy Customers" },
+    { "value": 15, "suffix": "+", "label": "Years Experience" },
+    { "value": 99, "suffix": "%", "label": "Purity Guaranteed" }
+  ],
+  "cta": {
+    "title": "Ready to Transform Your Kitchen?",
+    "description": "Experience the difference that premium, organic spices can make. Start your flavor journey today.",
+    "buttonText": "Shop Now",
+    "buttonLink": "/products"
+  }
+}

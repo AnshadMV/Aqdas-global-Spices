@@ -1,0 +1,64 @@
+@import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --color-brand-primary: #206c12;     /* Green */
+  --color-brand-primary-light: #2b8b18; 
+  --color-brand-primary-dark: #164f0c;
+  --color-brand-accent: #d4af37;      /* Gold */
+  
+  --color-surface-light: #ffffff;
+  --color-surface-light-alt: #f9fdf8;
+  --color-surface-dark: #121212;
+  --color-surface-dark-alt: #1e1e1e;
+  
+  --color-text-light: #1f2937;
+  --color-text-dark: #f3f4f6;
+
+  --animate-fade-in-up: fade-in-up 0.5s ease-out;
+  --keyframes-fade-in-up: {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  --animate-shimmer: shimmer 1.5s infinite;
+  --keyframes-shimmer: {
+    100% {
+      transform: translateX(150%) skewX(-15deg);
+    }
+  }
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    @apply bg-surface-light text-text-light transition-colors duration-300;
+  }
+  
+  .dark body {
+    @apply bg-surface-dark text-text-dark;
+  }
+}
+
+/* Custom scrollbar for premium feel */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  @apply bg-brand-primary/50 rounded-full;
+}
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-brand-primary;
+}

@@ -1,0 +1,293 @@
+@if (homeData) {
+<!-- Hero Section -->
+<section class="relative min-h-[90vh] flex items-center justify-center pt-20 pb-20 overflow-hidden bg-surface-light dark:bg-surface-dark">
+  <!-- Dynamic Gradient Background & Mobile Video -->
+  <div class="absolute inset-0 z-0 overflow-hidden pointer-events-none">
+    <!-- Mobile Video Background -->
+    <video autoplay loop muted playsinline class="absolute inset-0 w-full h-full object-cover block md:hidden opacity-30 dark:opacity-20 mix-blend-multiply dark:mix-blend-overlay">
+      <source src="https://assets.mixkit.co/videos/preview/mixkit-flying-powders-of-color-26366-large.mp4" type="video/mp4">
+    </video>
+    
+    <div class="absolute -top-[30%] -right-[10%] w-[70%] h-[70%] rounded-full bg-brand-primary/10 dark:bg-brand-primary/5 blur-3xl opacity-60"></div>
+    <div class="absolute top-[20%] -left-[10%] w-[50%] h-[50%] rounded-full bg-brand-accent/10 dark:bg-brand-accent/5 blur-3xl opacity-50"></div>
+    <div class="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI4IiBoZWlnaHQ9IjgiPgo8cmVjdCB3aWR0aD0iOCIgaGVpZ2h0PSI4IiBmaWxsPSIjZmZmIiBmaWxsLW9wYWNpdHk9IjAiLz4KPHBhdGggZD0iTTAgMEg4VjhIMHoiIGZpbGw9IiMyMDZjMTIiIGZpbGwtb3BhY2l0eT0iMC4wMiIvPgo8L3N2Zz4=')] opacity-50 dark:opacity-20 [mask-image:linear-gradient(to_bottom,white,transparent)]"></div>
+  </div>
+
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
+    <div class="w-full lg:w-1/2 flex flex-col items-center lg:items-start text-center lg:text-left relative">
+      <!-- Mobile Floating Badge -->
+      <div class="absolute -top-12 lg:-top-16 -right-4 lg:hidden w-24 h-24 bg-brand-accent text-white rounded-full flex items-center justify-center p-2 shadow-[0_10px_30px_rgba(212,175,55,0.4)] animate-[spin_15s_linear_infinite] z-20 overflow-hidden border border-white/20 backdrop-blur-md mix-blend-normal">
+         <svg viewBox="0 0 100 100" class="w-full h-full drop-shadow-md"><path d="M50,50 m-40,0 a40,40 0 1,1 80,0 a40,40 0 1,1 -80,0" fill="none" id="mobilecircle"></path><text class="uppercase font-extrabold text-[15px] tracking-wider fill-white"><textPath href="#mobilecircle">100% PURE • AUTHENTIC • </textPath></text></svg>
+      </div>
+
+      <div class="hero-badge inline-flex items-center gap-2 py-1.5 px-4 rounded-full bg-brand-primary/10 border border-brand-primary/20 text-brand-primary dark:text-brand-accent text-xs font-bold tracking-[0.2em] mb-8 backdrop-blur-md shadow-sm">
+        <span class="relative flex h-2 w-2">
+          <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-primary opacity-75"></span>
+          <span class="relative inline-flex rounded-full h-2 w-2 bg-brand-primary dark:bg-brand-accent"></span>
+        </span>
+        {{homeData.hero.badge}}
+      </div>
+      
+      <h1 class="text-5xl sm:text-6xl lg:text-7xl font-extrabold text-gray-900 dark:text-white leading-[1.1] mb-6 tracking-tight relative z-10 drop-shadow-md md:drop-shadow-none">
+        @for (line of homeData.hero.headline; track line; let last = $last) {
+          <div class="hero-title-line overflow-hidden">
+            <span [ngClass]="last ? 'text-transparent bg-clip-text bg-gradient-to-r from-brand-primary to-brand-accent block pb-2' : ''">
+              {{line}}
+            </span>
+          </div>
+        }
+      </h1>
+      
+      <p class="hero-desc text-lg sm:text-xl text-gray-800 dark:text-gray-300 mb-10 max-w-xl font-medium leading-relaxed drop-shadow-sm md:drop-shadow-none bg-white/40 md:bg-transparent dark:bg-black/40 dark:md:bg-transparent p-4 md:p-0 rounded-2xl backdrop-blur-md md:backdrop-blur-none border md:border-transparent border-white/20 dark:border-gray-800/50">
+        {{homeData.hero.subheadline}}
+      </p>
+      
+      <div class="hero-buttons flex flex-col sm:flex-row gap-5 w-full sm:w-auto relative z-10 block">
+        <a [routerLink]="homeData.hero.ctaPrimary === 'Explore Products' ? '/products' : '/products'" class="group relative inline-flex justify-center items-center px-8 py-4 text-base font-bold rounded-2xl text-white bg-brand-primary overflow-hidden transition-all hover:scale-[1.02] hover:shadow-[0_20px_40px_-15px_rgba(32,108,18,0.5)]">
+          <div class="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent -translate-x-[150%] skew-x-[-15deg] group-hover:animate-[shimmer_1.5s_infinite]"></div>
+          {{homeData.hero.ctaPrimary}}
+          <svg class="ml-2 w-5 h-5 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+        </a>
+        <a [routerLink]="homeData.hero.ctaSecondary === 'Our Story' ? '/about' : '/about'" class="inline-flex justify-center items-center px-8 py-4 border-2 border-brand-primary/30 md:border-gray-200 dark:border-gray-800 bg-white/50 backdrop-blur-md md:bg-transparent text-gray-900 dark:text-white text-base font-bold rounded-2xl hover:border-brand-primary hover:text-brand-primary dark:hover:border-brand-accent dark:hover:text-brand-accent transition-all hover:scale-[1.02] hover:bg-white dark:hover:bg-gray-800/80">
+          {{homeData.hero.ctaSecondary}}
+        </a>
+      </div>
+    </div>
+    
+    <div class="w-full lg:w-1/2 relative hero-bg-image hidden lg:block">
+      <!-- Decorative Orbital Elements -->
+      <div class="absolute top-[10%] -left-6 w-12 h-12 rounded-full border-4 border-dashed border-brand-accent/40 animate-[spin_8s_linear_infinite] z-0"></div>
+      <div class="absolute bottom-[20%] -right-8 w-16 h-16 rounded-full bg-brand-primary/20 blur-xl animate-pulse z-0"></div>
+      
+      <div class="relative rounded-[2.5rem] overflow-hidden aspect-[4/5] shadow-2xl border-4 border-white/50 dark:border-gray-800/50 backdrop-blur-sm">
+        <div class="absolute inset-0 bg-gradient-to-tr from-brand-primary/20 to-transparent mix-blend-overlay z-10 hover:opacity-0 transition-opacity duration-700"></div>
+        <img src="/assets/products/turmeric.jpg" alt="Premium Spices" class="w-full h-full object-cover scale-105 transition-transform duration-1000 hover:scale-110" />
+      </div>
+
+      <!-- Desktop Floating Badge -->
+      <div class="absolute -top-6 -right-6 w-32 h-32 bg-brand-primary rounded-full flex items-center justify-center text-white text-center p-4 shadow-2xl animate-[spin_20s_linear_infinite] z-20 border border-brand-primary-light">
+          <svg viewBox="0 0 100 100" class="w-full h-full"><path d="M50,50 m-40,0 a40,40 0 1,1 80,0 a40,40 0 1,1 -80,0" fill="none" id="circle"></path><text class="uppercase font-bold text-[13px] tracking-widest"><textPath href="#circle">100% Organic • Premium Spices • Local Harvest •</textPath></text></svg>
+      </div>
+
+      <!-- Floating Glass Card -->
+      <div class="absolute -bottom-10 -left-10 bg-white/80 dark:bg-gray-900/80 backdrop-blur-xl border border-white/40 dark:border-gray-700/50 p-6 rounded-3xl shadow-[0_15px_35px_rgba(0,0,0,0.1)] hover:shadow-[0_20px_40px_rgba(0,0,0,0.15)] transition-all duration-300 w-64 z-20 hover:-translate-y-2">
+        <div class="flex items-center gap-4 mb-3">
+          <div class="w-12 h-12 rounded-full bg-brand-primary/10 flex items-center justify-center flex-shrink-0 text-brand-primary relative">
+            <span class="absolute inset-0 rounded-full animate-ping bg-brand-primary/20"></span>
+            <svg class="w-6 h-6 relative z-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+          </div>
+          <div>
+            <div class="text-xs text-brand-primary dark:text-brand-accent font-bold uppercase tracking-wider mb-0.5">Quality Guaranteed</div>
+            <div class="font-extrabold text-gray-900 dark:text-white leading-none">Export Grade</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Features Section -->
+<section class="features-section py-24 bg-surface-light-alt dark:bg-surface-dark-alt relative z-10">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-16 max-w-3xl mx-auto">
+      <h2 class="text-3xl md:text-5xl font-bold text-gray-900 dark:text-white mb-6">The Aqdas Difference</h2>
+      <p class="text-lg text-gray-600 dark:text-gray-400">Why our customers choose us for their daily culinary adventures.</p>
+    </div>
+    
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+      @for(feature of homeData.features; track feature.title) {
+        <div class="feature-card group p-8 rounded-[2rem] bg-white dark:bg-gray-900 border border-gray-100 dark:border-gray-800 shadow-sm hover:shadow-[0_30px_60px_-15px_rgba(0,0,0,0.05)] dark:hover:shadow-[0_30px_60px_-15px_rgba(0,0,0,0.3)] transition-all duration-500 hover:-translate-y-2">
+          <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-brand-primary/10 to-brand-primary/5 flex items-center justify-center mb-6 text-brand-primary group-hover:scale-110 transition-transform duration-500 group-hover:bg-brand-primary group-hover:text-white">
+            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+               @switch(feature.icon) {
+                 @case('sparkles') { <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" /> }
+                 @case('shield') { <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" /> }
+                 @case('award') { <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /> }
+                 @case('leaf') { <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 6l3 1m0 0l-3 9a5.002 5.002 0 006.001 0M6 7l3 9M6 7l6-2m6 2l3-1m-3 1l-3 9a5.002 5.002 0 006.001 0M18 7l3 9m-3-9l-6-2m0-2v2m0 16V5m0 16H9m3 0h3" /> }
+                 @case('truck') { <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 14v3m4-3v3m4-3v3M3 21h18M3 10h18M3 7l9-4 9 4M4 10h16v11H4V10z" /> }
+                 @case('heart') { <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" /> }
+                 @default { <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" /> }
+               }
+            </svg>
+          </div>
+          <h3 class="text-2xl font-bold mb-3 text-gray-900 dark:text-white">{{feature.title}}</h3>
+          <p class="text-gray-600 dark:text-gray-400 leading-relaxed">{{feature.description}}</p>
+        </div>
+      }
+    </div>
+  </div>
+</section>
+
+<!-- About Section -->
+<section class="about-section py-24 bg-white dark:bg-surface-dark overflow-hidden">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex flex-col lg:flex-row items-center gap-16">
+      <div class="w-full lg:w-1/2 about-image relative">
+        <div class="relative rounded-[2.5rem] overflow-hidden aspect-square md:aspect-[4/3] lg:aspect-square">
+          <img [src]="homeData.about.image" alt="About Us" class="w-full h-full object-cover" />
+          <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+        </div>
+        <!-- Decorative Badge -->
+        <div class="absolute -top-6 -right-6 w-32 h-32 bg-brand-primary rounded-full flex items-center justify-center text-white text-center p-4 shadow-2xl animate-[spin_20s_linear_infinite] hidden md:flex">
+          <svg viewBox="0 0 100 100" class="w-full h-full"><path d="M50,50 m-40,0 a40,40 0 1,1 80,0 a40,40 0 1,1 -80,0" fill="none" id="circle"></path><text class="uppercase font-bold text-[13px] tracking-widest"><textPath href="#circle">100% Organic • Premium Spices • Local Harvest •</textPath></text></svg>
+        </div>
+      </div>
+      
+      <div class="w-full lg:w-1/2 about-content">
+        <div class="inline-flex items-center gap-2 py-1.5 px-4 rounded-full bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 text-xs font-bold tracking-[0.2em] mb-6 uppercase">
+          {{homeData.about.badge}}
+        </div>
+        <h2 class="text-4xl lg:text-5xl font-extrabold text-gray-900 dark:text-white mb-6 leading-tight">{{homeData.about.title}}</h2>
+        <p class="text-lg text-gray-600 dark:text-gray-400 mb-8 leading-relaxed">{{homeData.about.description}}</p>
+        
+        <ul class="space-y-4 mb-10">
+          @for(highlight of homeData.about.highlights; track highlight) {
+            <li class="flex items-center gap-3 text-gray-800 dark:text-gray-200 font-medium">
+              <div class="w-6 h-6 rounded-full bg-brand-primary/10 flex items-center justify-center text-brand-primary flex-shrink-0">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path></svg>
+              </div>
+              {{highlight}}
+            </li>
+          }
+        </ul>
+        
+        <a routerLink="/about" class="group inline-flex items-center gap-2 font-bold text-brand-primary dark:text-brand-accent hover:text-brand-primary-dark transition-colors text-lg">
+          Read Full Story
+          <svg class="w-5 h-5 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Stats Section -->
+<section class="stats-section py-20 bg-brand-primary relative overflow-hidden">
+  <div class="absolute inset-0 bg-[url('/assets/products/turmeric.jpg')] opacity-10 mix-blend-overlay object-cover w-full h-full grayscale"></div>
+  <div class="absolute inset-0 bg-gradient-to-r from-brand-primary to-brand-primary-dark opacity-90"></div>
+  
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-4 text-center divide-x divide-white/20">
+      @for(stat of homeData.stats; track stat.label) {
+        <div class="stat-item flex flex-col items-center p-4">
+          <div class="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white mb-2 flex items-baseline filter drop-shadow-md">
+            <span class="stat-value" [attr.data-value]="stat.value">0</span><span>{{stat.suffix}}</span>
+          </div>
+          <div class="text-sm md:text-base font-medium text-brand-primary-light text-white/80 uppercase tracking-wider">{{stat.label}}</div>
+        </div>
+      }
+    </div>
+  </div>
+</section>
+
+<!-- Featured Products -->
+<section class="products-section py-24 bg-surface-light dark:bg-surface-dark relative">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
+      <div class="max-w-2xl">
+        <h2 class="text-4xl md:text-5xl font-extrabold text-gray-900 dark:text-white mb-4">Curated Selection</h2>
+        <p class="text-lg text-gray-600 dark:text-gray-400">Discover our most popular spices, loved by chefs and home cooks alike.</p>
+      </div>
+      <a routerLink="/products" class="hidden md:inline-flex justify-center items-center px-6 py-3 border border-gray-300 dark:border-gray-700 text-sm font-bold uppercase tracking-wider rounded-full text-gray-900 dark:text-white hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors">
+        View All Products
+      </a>
+    </div>
+    
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-10">
+      @for(product of featuredProducts; track product.id) {
+        <div class="product-card group relative bg-white dark:bg-surface-dark-alt rounded-[2rem] overflow-hidden border border-gray-100 dark:border-gray-800 shadow-sm hover:shadow-2xl transition-all duration-500">
+          <div class="relative h-72 overflow-hidden bg-gray-100 dark:bg-gray-800">
+            <img [src]="product.image" [alt]="product.name" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
+            <div class="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+            <!-- Category Badge -->
+            <div class="absolute top-5 left-5 bg-white/90 dark:bg-gray-900/90 backdrop-blur-md text-brand-primary dark:text-brand-accent px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider shadow-sm z-10">
+              {{product.category}}
+            </div>
+            <!-- Hover Action -->
+            <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-20">
+              <span class="bg-white text-gray-900 px-6 py-3 rounded-full font-bold shadow-lg transform translate-y-4 group-hover:translate-y-0 transition-all duration-300">Quick View</span>
+            </div>
+          </div>
+          <div class="p-8">
+            <div class="flex justify-between items-start mb-4">
+              <h3 class="text-2xl font-bold text-gray-900 dark:text-white group-hover:text-brand-primary transition-colors">{{product.name}}</h3>
+              <!-- Price can be added here if desired -->
+            </div>
+            <p class="text-gray-600 dark:text-gray-400 mb-6 line-clamp-2 leading-relaxed">{{product.description}}</p>
+            <div class="flex items-center justify-between mt-auto pt-6 border-t border-gray-100 dark:border-gray-800">
+               <a routerLink="/products" class="text-brand-primary dark:text-brand-accent font-bold hover:text-brand-primary-dark transition-colors flex items-center gap-2 group/link">
+                Explore Details
+                <svg class="w-4 h-4 transition-transform group-hover/link:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+              </a>
+            </div>
+          </div>
+        </div>
+      }
+    </div>
+    
+    <div class="text-center mt-12 md:hidden">
+      <a routerLink="/products" class="inline-flex justify-center items-center px-8 py-4 border border-gray-300 dark:border-gray-700 text-sm font-bold uppercase tracking-wider rounded-full text-gray-900 dark:text-white hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors w-full">
+        View All Products
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- Testimonials Section -->
+<section class="testimonials-section py-24 bg-gray-50 dark:bg-surface-dark-alt/50 relative overflow-hidden">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-16 max-w-2xl mx-auto">
+      <h2 class="text-4xl md:text-5xl font-extrabold text-gray-900 dark:text-white mb-4">Loved by Chefs</h2>
+      <p class="text-lg text-gray-600 dark:text-gray-400">Don't just take our word for it. Here is what cooking enthusiasts have to say.</p>
+    </div>
+    
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      @for(testimonial of testimonials | slice:0:3; track testimonial.name) {
+        <div class="testimonial-card relative bg-white dark:bg-surface-dark p-8 md:p-10 rounded-[2rem] shadow-sm border border-gray-100/50 dark:border-gray-800/50 flex flex-col">
+          <svg class="absolute top-8 right-8 w-12 h-12 text-brand-primary/10 dark:text-brand-primary/20 transform -scale-x-100" fill="currentColor" viewBox="0 0 24 24"><path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" /></svg>
+          
+          <div class="flex text-brand-accent mb-6 gap-1">
+            @for(star of [1,2,3,4,5]; track star) {
+              <svg class="w-5 h-5" [class.opacity-30]="star > testimonial.rating" fill="currentColor" viewBox="0 0 20 20">
+                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+              </svg>
+            }
+          </div>
+          
+          <p class="text-gray-700 dark:text-gray-300 text-lg leading-relaxed mb-8 flex-grow font-medium">"{{testimonial.message}}"</p>
+          
+          <div class="flex items-center gap-4 mt-auto">
+            <div class="w-12 h-12 bg-gray-200 dark:bg-gray-800 rounded-full flex items-center justify-center font-bold text-gray-600 dark:text-gray-400 text-lg uppercase">
+              {{testimonial.name.charAt(0)}}
+            </div>
+            <div>
+              <div class="font-bold text-gray-900 dark:text-white">{{testimonial.name}}</div>
+              <div class="text-sm text-gray-500 dark:text-gray-400">{{testimonial.role || 'Customer'}}</div>
+            </div>
+          </div>
+        </div>
+      }
+    </div>
+  </div>
+</section>
+
+<!-- CTA Section -->
+<section class="cta-section py-24 relative overflow-hidden">
+  <div class="absolute inset-0 bg-gray-900 dark:bg-black"></div>
+  <div class="absolute inset-0 bg-[url('/assets/products/garam-masala.jpg')] opacity-30 mix-blend-overlay object-cover w-full h-full"></div>
+  <div class="absolute inset-0 bg-gradient-to-t from-gray-900 via-gray-900/80 to-transparent"></div>
+  
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center cta-content">
+    <h2 class="text-4xl md:text-6xl font-extrabold text-white mb-6 leading-tight">{{homeData.cta.title}}</h2>
+    <p class="text-xl text-gray-300 mb-10 font-medium max-w-2xl mx-auto">{{homeData.cta.description}}</p>
+    <a [routerLink]="homeData.cta.buttonLink" class="inline-flex justify-center items-center px-10 py-5 text-lg font-bold rounded-full text-gray-900 bg-white hover:bg-brand-accent transition-all transform hover:scale-105 shadow-[0_0_40px_rgba(255,255,255,0.2)] hover:shadow-[0_0_40px_rgba(212,175,55,0.4)] relative group overflow-hidden">
+      <div class="absolute inset-0 bg-white/20 group-hover:animate-[ping_1.5s_cubic-bezier(0,0,0.2,1)_infinite] rounded-full"></div>
+      <span class="relative z-10">{{homeData.cta.buttonText}}</span>
+    </a>
+  </div>
+</section>
+} @else {
+  <!-- Loading skeleton or minimal loader can go here but homeData structure avoids layout jump -->
+  <div class="h-screen flex items-center justify-center bg-surface-light dark:bg-surface-dark">
+     <div class="animate-spin rounded-full h-16 w-16 border-t-4 border-b-4 border-brand-primary"></div>
+  </div>
+}

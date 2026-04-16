@@ -1,0 +1,122 @@
+<nav
+  class="fixed w-full z-50 top-0 left-0 bg-surface-light/80 dark:bg-surface-dark/90 backdrop-blur-md shadow-sm transition-colors duration-300">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex justify-between items-center h-20">
+      <!-- Logo -->
+      <div class="flex-shrink-0 flex items-center gap-3">
+        <a routerLink="/" class="flex flex-row items-center cursor-pointer gap-2 group">
+          <img class="h-16 w-auto transition-transform duration-300 group-hover:scale-105" src="/assets/logo.png"
+            alt="Aqdas Spices">
+          <span
+            class="font-extrabold text-2xl text-brand-primary dark:text-brand-accent tracking-wide uppercase leading-tight">
+            Aqdas<br>
+            <span class="text-xs text-brand-accent dark:text-gray-400 font-semibold tracking-[0.2em]">Spices</span>
+          </span>
+        </a>
+      </div>
+
+      <!-- Desktop Menu -->
+      <div class="hidden md:flex items-center space-x-2">
+        <a routerLink="/" routerLinkActive="active-nav-item" [routerLinkActiveOptions]="{exact: true}"
+          class="relative px-4 py-2 text-gray-700 dark:text-gray-300 hover:text-brand-primary dark:hover:text-brand-accent font-medium transition-colors duration-300 group">
+          <span>Home</span>
+          <span
+            class="absolute bottom-0 left-0 w-full h-0.5 bg-brand-primary dark:bg-brand-accent transform scale-x-0 transition-transform duration-300 origin-right group-hover:scale-x-100 group-hover:origin-left group-[.active-nav-item]:scale-x-100 group-[.active-nav-item]:origin-left"></span>
+        </a>
+        <a routerLink="/products" routerLinkActive="active-nav-item"
+          class="relative px-4 py-2 text-gray-700 dark:text-gray-300 hover:text-brand-primary dark:hover:text-brand-accent font-medium transition-colors duration-300 group">
+          <span>Shop Spices</span>
+          <span
+            class="absolute bottom-0 left-0 w-full h-0.5 bg-brand-primary dark:bg-brand-accent transform scale-x-0 transition-transform duration-300 origin-right group-hover:scale-x-100 group-hover:origin-left group-[.active-nav-item]:scale-x-100 group-[.active-nav-item]:origin-left"></span>
+        </a>
+        <a routerLink="/about" routerLinkActive="active-nav-item"
+          class="relative px-4 py-2 text-gray-700 dark:text-gray-300 hover:text-brand-primary dark:hover:text-brand-accent font-medium transition-colors duration-300 group">
+          <span>Our Story</span>
+          <span
+            class="absolute bottom-0 left-0 w-full h-0.5 bg-brand-primary dark:bg-brand-accent transform scale-x-0 transition-transform duration-300 origin-right group-hover:scale-x-100 group-hover:origin-left group-[.active-nav-item]:scale-x-100 group-[.active-nav-item]:origin-left"></span>
+        </a>
+        <a routerLink="/contact" routerLinkActive="active-nav-item"
+          class="relative px-4 py-2 text-gray-700 dark:text-gray-300 hover:text-brand-primary dark:hover:text-brand-accent font-medium transition-colors duration-300 group">
+          <span>Contact</span>
+          <span
+            class="absolute bottom-0 left-0 w-full h-0.5 bg-brand-primary dark:bg-brand-accent transform scale-x-0 transition-transform duration-300 origin-right group-hover:scale-x-100 group-hover:origin-left group-[.active-nav-item]:scale-x-100 group-[.active-nav-item]:origin-left"></span>
+        </a>
+
+        <div class="pl-4 ml-4 border-l border-gray-200 dark:border-gray-700">
+          <!-- Theme Toggle -->
+          <button (click)="themeService.toggleTheme()"
+            class="p-2 rounded-full bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300 hover:bg-brand-primary/10 hover:text-brand-primary dark:hover:bg-brand-accent/20 dark:hover:text-brand-accent transition-all duration-300 transform hover:rotate-12"
+            aria-label="Toggle Dark Mode">
+            @if(themeService.isDarkMode()) {
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z">
+              </path>
+            </svg>
+            } @else {
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path>
+            </svg>
+            }
+          </button>
+        </div>
+      </div>
+
+      <!-- Mobile menu button -->
+      <div class="md:hidden flex items-center gap-4">
+        <!-- Theme Toggle Mobile -->
+        <button (click)="themeService.toggleTheme()"
+          class="p-2 rounded-full bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 transition"
+          aria-label="Toggle Dark Mode">
+          @if(themeService.isDarkMode()) {
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z">
+            </path>
+          </svg>
+          } @else {
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path>
+          </svg>
+          }
+        </button>
+
+        <button (click)="toggleMenu()"
+          class="text-gray-700 dark:text-gray-300 hover:text-brand-primary dark:hover:text-brand-accent focus:outline-none">
+          <svg class="h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
+            @if(isMenuOpen) {
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+            } @else {
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+            }
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Mobile Menu -->
+  @if(isMenuOpen) {
+  <div class="md:hidden bg-white dark:bg-surface-dark border-t border-gray-100 dark:border-gray-800">
+    <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+      <a routerLink="/" (click)="toggleMenu()"
+        routerLinkActive="bg-brand-primary/10 text-brand-primary dark:text-brand-accent"
+        [routerLinkActiveOptions]="{exact: true}"
+        class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 dark:text-gray-300 hover:text-brand-primary dark:hover:text-brand-accent hover:bg-gray-50 dark:hover:bg-gray-800">Home</a>
+      <a routerLink="/products" (click)="toggleMenu()"
+        routerLinkActive="bg-brand-primary/10 text-brand-primary dark:text-brand-accent"
+        class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 dark:text-gray-300 hover:text-brand-primary dark:hover:text-brand-accent hover:bg-gray-50 dark:hover:bg-gray-800">Shop
+        Spices</a>
+      <a routerLink="/about" (click)="toggleMenu()"
+        routerLinkActive="bg-brand-primary/10 text-brand-primary dark:text-brand-accent"
+        class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 dark:text-gray-300 hover:text-brand-primary dark:hover:text-brand-accent hover:bg-gray-50 dark:hover:bg-gray-800">Our
+        Story</a>
+      <a routerLink="/contact" (click)="toggleMenu()"
+        routerLinkActive="bg-brand-primary/10 text-brand-primary dark:text-brand-accent"
+        class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 dark:text-gray-300 hover:text-brand-primary dark:hover:text-brand-accent hover:bg-gray-50 dark:hover:bg-gray-800">Contact</a>
+    </div>
+  </div>
+  }
+</nav>
