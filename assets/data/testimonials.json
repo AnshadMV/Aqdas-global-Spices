@@ -1,0 +1,32 @@
+[
+  {
+    "name": "Sarah Jenkins",
+    "role": "Home Chef",
+    "message": "Amazing quality spices! The turmeric is so pure and the aroma is absolutely fantastic. It has completely elevated my cooking to new heights.",
+    "rating": 5
+  },
+  {
+    "name": "Amit Sharma",
+    "role": "Restaurant Owner",
+    "message": "Authentic taste indeed. Reminds me of home. The garam masala blend is unmatched — my customers have noticed the difference immediately.",
+    "rating": 5
+  },
+  {
+    "name": "David Lawrence",
+    "role": "Food Blogger",
+    "message": "Great products with fast delivery. The red chilli powder adds such depth and vibrant color to every dish. Highest recommendation!",
+    "rating": 5
+  },
+  {
+    "name": "Priya Patel",
+    "role": "Culinary Instructor",
+    "message": "I use Aqdas Spices exclusively in my cooking classes. The consistency and purity are unbeatable. My students love the results.",
+    "rating": 5
+  },
+  {
+    "name": "Michael Torres",
+    "role": "Food Enthusiast",
+    "message": "Switched from supermarket spices to Aqdas and the difference is night and day. These are real, authentic spices with incredible flavor profiles.",
+    "rating": 4
+  }
+]

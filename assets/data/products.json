@@ -1,0 +1,50 @@
+[
+  {
+    "id": 1,
+    "name": "Turmeric Powder",
+    "category": "Powder",
+    "description": "Pure organic turmeric sourced from the finest farms.",
+    "price": 5.99,
+    "image": "/assets/products/turmeric.jpg"
+  },
+  {
+    "id": 2,
+    "name": "Cumin Seeds",
+    "category": "Whole Spices",
+    "description": "Aromatic and natural cumin seeds for daily cooking.",
+    "price": 4.50,
+    "image": "/assets/products/cumin.jpg"
+  },
+  {
+    "id": 3,
+    "name": "Garam Masala",
+    "category": "Masala",
+    "description": "A traditional blend of robust spices. Adds authentic taste.",
+    "price": 7.25,
+    "image": "/assets/products/garam-masala.jpg"
+  },
+  {
+    "id": 4,
+    "name": "Red Chilli Powder",
+    "category": "Powder",
+    "description": "Vibrant color and intense heat. Perfect for spicy dishes.",
+    "price": 6.10,
+    "image": "/assets/products/chilli.jpg"
+  },
+  {
+    "id": 5,
+    "name": "Coriander Powder",
+    "category": "Powder",
+    "description": "Freshly ground organic coriander. Essential for curries.",
+    "price": 4.80,
+    "image": "/assets/products/coriander.jpg"
+  },
+  {
+    "id": 6,
+    "name": "Cardamom Pods",
+    "category": "Whole Spices",
+    "description": "Premium whole cardamom pods for sweet and savory dishes.",
+    "price": 9.99,
+    "image": "/assets/products/cardamom.jpg"
+  }
+]
