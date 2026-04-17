@@ -1,22 +1,26 @@
-<div class="bg-surface-light dark:bg-surface-dark min-h-screen py-10 transition-colors duration-300">
+<div class="bg-surface-light dark:bg-surface-dark min-h-screen py-10 transition-colors duration-300 font-sans">
   
   <!-- Header -->
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-12">
-    <div class="text-center">
-      <h1 class="text-4xl font-bold text-gray-900 dark:text-white mb-4 animate-[fade-in-up_0.5s_ease-out]">Our Premium Spices</h1>
-      <p class="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">Browse our collection of handpicked, sun-dried, and organic spices directly from the farms to your kitchen.</p>
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-16 pt-8">
+    <div class="text-center products-header">
+      <div class="inline-flex items-center justify-center space-x-2 bg-brand-primary/10 dark:bg-brand-accent/10 text-brand-primary dark:text-brand-accent px-4 py-1.5 rounded-full text-sm font-semibold mb-6 tracking-wide uppercase border border-brand-primary/20 dark:border-brand-accent/20">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>
+        <span>Discover Our Collection</span>
+      </div>
+      <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold text-gray-900 dark:text-white mb-6 tracking-tight drop-shadow-sm">Premium Spices</h1>
+      <p class="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto text-lg leading-relaxed">Browse our collection of handpicked, sun-dried, and organic spices directly from the farms to your kitchen.</p>
     </div>
   </div>
 
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-20">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-24">
     
     <!-- Filter -->
-    <div class="flex flex-wrap justify-center gap-3 mb-10">
+    <div class="flex flex-wrap justify-center gap-4 mb-16">
       @for(category of categories; track category) {
         <button 
           (click)="filterCategory(category)"
-          class="px-6 py-2 rounded-full text-sm font-medium transition-all duration-200 shadow-sm"
-          [class]="activeCategory === category ? 'bg-brand-primary text-white scale-105' : 'bg-white dark:bg-surface-dark-alt text-gray-700 dark:text-gray-300 hover:bg-brand-primary/10 hover:text-brand-primary border border-gray-200 dark:border-gray-800'">
+          class="filter-btn px-6 py-2.5 rounded-full text-sm font-semibold transition-all duration-300 shadow-sm outline-none border focus:ring-2 focus:ring-brand-primary/50 focus:ring-offset-2 dark:focus:ring-offset-gray-900"
+          [class]="activeCategory === category ? 'bg-brand-primary text-white border-brand-primary shadow-[0_4px_14px_0_rgba(var(--tw-colors-brand-primary),0.39)] transform scale-105' : 'bg-white dark:bg-surface-dark-alt text-gray-700 dark:text-gray-300 hover:bg-brand-primary/5 hover:text-brand-primary border-gray-200 dark:border-gray-800 hover:border-brand-primary/30'">
           {{category}}
         </button>
       }
@@ -24,17 +28,17 @@
 
     <!-- Loading Skeleton -->
     @if(isLoading) {
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 xl:gap-10">
         @for(i of [1,2,3,4,5,6]; track i) {
-          <div class="bg-white dark:bg-surface-dark-alt rounded-2xl overflow-hidden shadow border border-gray-100 dark:border-gray-800 animate-pulse">
-            <div class="h-64 bg-gray-200 dark:bg-gray-700"></div>
-            <div class="p-6">
-              <div class="h-6 bg-gray-200 dark:bg-gray-700 rounded w-3/4 mb-4"></div>
-              <div class="h-4 bg-gray-200 dark:bg-gray-700 rounded w-full mb-2"></div>
-              <div class="h-4 bg-gray-200 dark:bg-gray-700 rounded w-5/6 mb-6"></div>
-              <div class="flex justify-between">
-                <div class="h-6 bg-gray-200 dark:bg-gray-700 rounded w-1/4"></div>
-                <div class="h-6 bg-gray-200 dark:bg-gray-700 rounded w-1/4"></div>
+          <div class="bg-white dark:bg-surface-dark-alt rounded-3xl overflow-hidden shadow-sm border border-gray-100 dark:border-gray-800 animate-pulse pb-6">
+            <div class="h-64 bg-gray-200 dark:bg-gray-800 mb-6"></div>
+            <div class="px-6">
+              <div class="h-6 bg-gray-200 dark:bg-gray-800 rounded w-3/4 mb-4"></div>
+              <div class="h-4 bg-gray-200 dark:bg-gray-800 rounded w-full mb-2"></div>
+              <div class="h-4 bg-gray-200 dark:bg-gray-800 rounded w-5/6 mb-8"></div>
+              <div class="flex justify-between items-center">
+                <div class="h-8 bg-gray-200 dark:bg-gray-800 rounded w-1/3"></div>
+                <div class="h-10 w-10 bg-gray-200 dark:bg-gray-800 rounded-full"></div>
               </div>
             </div>
           </div>
@@ -42,32 +46,46 @@
       </div>
     } @else {
       <!-- Product Grid -->
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+      <div class="products-grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 xl:gap-10">
         @for(product of filteredProducts; track product.id) {
-          <div class="group bg-white dark:bg-surface-dark-alt rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden border border-gray-100 dark:border-gray-800 flex flex-col">
-            <div class="relative h-64 overflow-hidden">
-              <img [src]="product.image" [alt]="product.name" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
-              <div class="absolute top-4 right-4 bg-white/90 dark:bg-gray-900/90 backdrop-blur text-brand-primary dark:text-brand-accent px-3 py-1 rounded-full text-xs font-semibold shadow">
+          <a [routerLink]="['/products', product.id]" class="product-card group bg-white dark:bg-surface-dark-alt rounded-3xl shadow-sm hover:shadow-2xl hover:shadow-brand-primary/10 transition-all duration-500 overflow-hidden border border-gray-100 dark:border-gray-800 flex flex-col transform hover:-translate-y-2 relative focus:outline-none focus:ring-2 focus:ring-brand-primary/50">
+            <!-- Image Area -->
+            <div class="relative h-72 overflow-hidden bg-gray-50 dark:bg-gray-800/50">
+              <img [src]="product.image" [alt]="product.name" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 origin-center" />
+              <!-- Overlay gradient for premium feel -->
+              <div class="absolute inset-0 bg-gradient-to-t from-gray-900/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+              
+              <div class="absolute top-4 left-4 bg-white/90 dark:bg-gray-900/90 backdrop-blur-sm text-brand-primary dark:text-brand-accent px-4 py-1.5 rounded-full text-xs font-bold shadow-sm uppercase tracking-wider">
                 {{product.category}}
               </div>
             </div>
-            <div class="p-6 flex-grow flex flex-col">
-              <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2 group-hover:text-brand-primary transition-colors">{{product.name}}</h3>
-              <p class="text-gray-600 dark:text-gray-400 text-sm mb-6 flex-grow">{{product.description}}</p>
+            
+            <!-- Content Area -->
+            <div class="p-6 md:p-8 flex-grow flex flex-col relative bg-white dark:bg-surface-dark-alt z-10 transition-colors duration-300">
+              <h3 class="text-2xl font-bold text-gray-900 dark:text-white mb-3 group-hover:text-brand-primary transition-colors duration-300">{{product.name}}</h3>
+              <p class="text-gray-500 dark:text-gray-400 text-base mb-8 flex-grow line-clamp-2 leading-relaxed">{{product.description}}</p>
               
               <div class="flex items-center justify-between mt-auto">
-                <span class="text-xl font-bold text-brand-primary dark:text-brand-accent">${{product.price}}</span>
-                <button class="bg-brand-primary/10 text-brand-primary dark:bg-brand-accent/20 dark:text-brand-accent hover:bg-brand-primary hover:text-white transition-colors p-2 rounded-full" title="Add to Cart">
-                  <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>
-                </button>
+                <div class="flex items-baseline text-gray-900 dark:text-white font-bold">
+                  <span class="text-sm font-medium text-gray-500 mr-1">$</span>
+                  <span class="text-2xl">{{product.price}}</span>
+                </div>
+                <!-- Action button (visual focus for hover) -->
+                <div class="bg-gray-50 text-gray-500 dark:bg-gray-800 dark:text-gray-400 group-hover:bg-brand-primary group-hover:text-white group-hover:shadow-[0_0_20px_rgba(var(--tw-colors-brand-primary),0.4)] transition-all duration-300 p-3 rounded-full scale-95 group-hover:scale-110 active:scale-95 flex items-center justify-center">
+                   <svg class="w-5 h-5 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="M12 5l7 7-7 7"></path></svg>
+                </div>
               </div>
             </div>
-          </div>
+          </a>
         }
         
         @if(filteredProducts.length === 0) {
-          <div class="col-span-full py-12 text-center text-gray-500">
-            No products found for this category.
+          <div class="col-span-full py-24 text-center">
+            <div class="inline-flex items-center justify-center w-16 h-16 rounded-full bg-gray-100 dark:bg-gray-800 mb-4 text-gray-400">
+              <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.172 16.172a4 4 0 015.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+            </div>
+            <h3 class="text-2xl font-bold text-gray-900 dark:text-white mb-2">No products found</h3>
+            <p class="text-gray-500 dark:text-gray-400">We couldn't find any spices matching the selected category.</p>
           </div>
         }
       </div>

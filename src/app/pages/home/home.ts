@@ -81,20 +81,44 @@ export class Home implements OnInit, OnDestroy {
           { y: 40, opacity: 0 },
           { y: 0, opacity: 1, duration: 0.8, ease: 'back.out(1.5)' }, '-=0.8');
 
-      // 2. Features Reveal
-      gsap.fromTo('.feature-card', 
-        { y: 60, opacity: 0 },
+      // 2. Features Section — Orchestrated Reveal
+      const featuresST = {
+        scrollTrigger: { trigger: '.features-section', start: 'top 80%' }
+      };
+
+      // Header slides up first
+      gsap.fromTo('.features-header',
+        { y: 50, opacity: 0 },
+        { y: 0, opacity: 1, duration: 0.8, ease: 'power3.out', ...featuresST }
+      );
+
+      // Cards cascade in after a slight delay
+      gsap.fromTo('.feature-card',
+        { y: 70, opacity: 0, scale: 0.94 },
         {
-          scrollTrigger: {
-            trigger: '.features-section',
-            start: 'top 85%',
-          },
+          scrollTrigger: { trigger: '.features-section', start: 'top 75%' },
           y: 0,
           opacity: 1,
-          duration: 0.8,
-          stagger: 0.15,
-          ease: 'power3.out'
-        });
+          scale: 1,
+          duration: 0.7,
+          stagger: { amount: 0.55, from: 'start' },
+          ease: 'power3.out',
+          delay: 0.25
+        }
+      );
+
+      // Trust badges slide up last
+      gsap.fromTo('.trust-badge',
+        { y: 20, opacity: 0 },
+        {
+          scrollTrigger: { trigger: '.features-trust', start: 'top 92%' },
+          y: 0,
+          opacity: 1,
+          duration: 0.5,
+          stagger: 0.1,
+          ease: 'power2.out'
+        }
+      );
 
       // 3. Featured Products Highlight
       gsap.fromTo('.product-card', 
